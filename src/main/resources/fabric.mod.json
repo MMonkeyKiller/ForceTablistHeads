@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "forcetablistheads",
+  "version": "${version}",
+  "name": "ForceTablistHeads",
+  "description": "Make tablist player heads visible even in offline mode",
+  "authors": ["MonkeyKiller"],
+  "contact": {
+    "sources": "https://github.com/MMonkeyKiller/ForceTablistHeads",
+    "issues": "https://github.com/MMonkeyKiller/ForceTablistHeads/issues"
+  },
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+  },
+  "mixins": [
+    "forcetablistheads.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": ">=${minecraft_version}"
+  }
+}
