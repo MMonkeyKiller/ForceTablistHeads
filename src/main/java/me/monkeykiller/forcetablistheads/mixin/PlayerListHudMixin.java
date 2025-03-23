@@ -1,14 +1,15 @@
 package me.monkeykiller.forcetablistheads.mixin;
 
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.PlayerListHud;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(PlayerListHud.class)
 public class PlayerListHudMixin {
-  @ModifyVariable(method = "render", at = @At(value = "STORE"))
-  private boolean shouldRenderHeads(boolean value) {
+  @Redirect(method = "render", at = @At(value = "INVOKE", target="Lnet/minecraft/client/MinecraftClient;isInSingleplayer()Z"))
+  private boolean shouldRenderHeads(MinecraftClient instance) {
     return true;
   }
 }
