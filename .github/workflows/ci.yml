@@ -17,14 +17,11 @@ jobs:
         run: chmod +x ./gradlew
       - name: Build with Gradle Wrapper
         run: ./gradlew build
-      - name: Release
-        uses: softprops/action-gh-release@v3
-        if: github.ref_type == 'tag'
-        with:
-          files: 'build/libs/!(*-@(dev|sources|javadoc|all)).jar'
       - name: mc-publish
         uses: Kir-Antipov/mc-publish@v3.3.0
         if: github.ref_type == 'tag'
         with:
           modrinth-id: nf3xQdhC
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          files: 'build/libs/!(*-@(dev|sources|javadoc|all)).jar'
