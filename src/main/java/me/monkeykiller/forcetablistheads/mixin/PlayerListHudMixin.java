@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(PlayerTabOverlay.class)
 public class PlayerListHudMixin {
-  @Redirect(method = "render", at = @At(value = "INVOKE", target="Lnet/minecraft/client/Minecraft;isLocalServer()Z"))
+  @Redirect(method = "extractRenderState", at = @At(value = "INVOKE", target="Lnet/minecraft/client/Minecraft;isLocalServer()Z"))
   private boolean shouldRenderHeads(Minecraft instance) {
     return true;
   }
