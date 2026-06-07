@@ -10,6 +10,7 @@
     "issues": "https://github.com/MMonkeyKiller/ForceTablistHeads/issues"
   },
   "license": "MIT",
+  "icon": "assets/forcetablistheads/icon.png",
   "environment": "client",
   "entrypoints": {
   },
